@@ -94,11 +94,15 @@ Here’s the rundown
 
 ## Built With
 
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
+[Python](https://www.python.org/) – Programming language  
+[Jupyter Notebook](https://jupyter.org/) – Environment where code, charts for data exploration.  
+[Pandas](https://pandas.pydata.org/) – Library for loading, cleaning, and manipulating tabular data.  
+[NumPy](https://numpy.org/) – Foundation for fast numerical operations/array handling in Python.  
+[scikit-learn](https://scikit-learn.org/) – The building blocks for our pipelines, model training, and hyperparameter tuning.  
+[spaCy](https://spacy.io/) – A modern NLP library that we use to tokenize, lemmatize, and clean up review text.  
+[Matplotlib](https://matplotlib.org/) – Python plotting library for our custom visuals.  
+[Seaborn](https://seaborn.pydata.org/) – Creates statistical charts that look polished.  
 
-Include all items used to build project.
 
 ## License
 
