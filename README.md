@@ -1,3 +1,5 @@
+![Data Analysis Customer Reviews – Fashion Forward](logo.png)
+
 # Clothing Review Recommendation Pipeline
 
 Ever wondered if a handful of customer details and a few lines of text could predict whether someone will recommend a piece of clothing? That’s exactly what I tackled here—and spoiler: it works surprisingly well. This pipeline takes raw review text, customer age, feedback counts and product categories, then churns out a model that guesses “recommend” or “not recommend” with around 85% accuracy.
