@@ -32,7 +32,7 @@ python -m spacy download en_core_web_sm
 Launch the notebook
 jupyter notebook starter.ipynb
 
-## Testing
+### Testing
 
 Time to see how our model performs on brand-new reviews. We feed the tuned Random Forest our hold-out test set and snap some key metrics—overall accuracy, sure, but also precision, recall and F1 for both “Yes, recommend” and “No, thanks.” And because numbers alone don’t always tell the whole story, we’ll wrap up with a confusion matrix so you can spot exactly where the model hit the mark—or missed it.
 
@@ -48,24 +48,24 @@ Time to see how our model performs on brand-new reviews. We feed the tuned Rando
 This is the function I used to calculate the metrics.
 ```python
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-```
-# Get predictions on our test set
+
+-Get predictions on our test set
 y_pred = best_model.predict(X_test)
 
-# Overall accuracy
+-Overall accuracy
 print("Test Accuracy:", accuracy_score(y_test, y_pred))
 
-# Per-class precision, recall, F1
+-Per-class precision, recall, F1
 print("Classification Report:\n", classification_report(y_test, y_pred))
 
-# Confusion matrix heatmap for a visual of hits vs. misses
+-Confusion matrix heatmap for a visual of hits vs. misses
 cm = confusion_matrix(y_test, y_pred)
 sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
 plt.xlabel("Predicted")
 plt.ylabel("Actual")
 plt.title("Confusion Matrix – Test Set")
 plt.show()
-
+```
 ## Project Instructions
 
 This notebook lays out everything you need, from raw data to a tuned model. 
