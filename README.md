@@ -1,3 +1,4 @@
+![Data Analysis Customer Reviews – Fashion Forward](logo.png)
 
 # Clothing Review Recommendation Pipeline
 
