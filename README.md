@@ -8,16 +8,12 @@ Grab a copy of this repo and you’ll have everything you need to run the notebo
 
 ### Dependencies
 
-Make sure you’ve got the following installed:
-
-  Python 3.7 or higher  
-  pandas
-  numpy
-  scikit-learn 
-  spaCy
-  seaborn
-  matplotlib 
-  Jupyter Notebook
+matplotlib
+spacy
+pandas
+numpy
+scikit-learn
+seaborn
 
 ### Installation
 
@@ -34,7 +30,7 @@ Grab the spaCy English model
 python -m spacy download en_core_web_sm
 
 Launch the notebook
-jupyter notebook starter/starter.ipynb
+jupyter notebook starter.ipynb
 
 ## Testing
 
@@ -49,6 +45,7 @@ Time to see how our model performs on brand-new reviews. We feed the tuned Rando
 - **confusion_matrix**  
   A quick heatmap that highlights which reviews got mixed up—the dark blocks show our strongest areas, and the lighter ones tell us where we can improve.
 
+This is the function I used to calculate the metrics.
 ```python
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
@@ -58,10 +55,10 @@ y_pred = best_model.predict(X_test)
 # Overall accuracy
 print("Test Accuracy:", accuracy_score(y_test, y_pred))
 
-# Per-class precision / recall / F1
+# Per-class precision, recall, F1
 print("Classification Report:\n", classification_report(y_test, y_pred))
 
-# Confusion matrix heatmap for a clear visual of hits vs. misses
+# Confusion matrix heatmap for a visual of hits vs. misses
 cm = confusion_matrix(y_test, y_pred)
 sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
 plt.xlabel("Predicted")
@@ -69,11 +66,31 @@ plt.ylabel("Actual")
 plt.title("Confusion Matrix – Test Set")
 plt.show()
 
-
-
 ## Project Instructions
 
-This section should contain all the student deliverables for this project.
+This notebook lays out everything you need, from raw data to a tuned model. 
+Here’s the rundown
+
+**Data Loading & Inspection**  
+  We kick off by loading the reviews CSV, checking data types, spotting any missing values, and glancing at basic stats.
+
+**Exploratory Visualizations**  
+  Next up, we dive into chart. Recommendation counts and proportions, numeric feature distributions, top-10 categories, plus a donut chart and a 2×2 grid of for visuals. Because one plot is rarely enough.
+
+**Feature Engineering**  
+ We whip up two quick features, review length and exclamation mark count. And we give our text a clean up using spaCy, lemmatizing and filtering out the noise.
+
+**Preprocessing Pipeline**  
+  Numeric fields get median imputation and scaling. Categorical bits go through a “fill-missing-and-one-hot” routine. Text is first cleaned with our custom TextCleaner and then vectorized via TF-IDF. After that, all numeric, categorical, and text transformations are combined with a ColumnTransformer into one cohesive Pipeline.
+
+**Hyperparameter Tuning**  
+  We put our Random Forest under the HalvingRandomSearchCV microscope, trying different tree counts and depths with 5-fold cross-validation to find the sweet spot.
+
+**Model Training**  
+  Once the best settings emerge, we train the final pipeline on our full training split.
+
+**Model Evaluation**  
+  At the end, we let the model loose on hold-out data. You get overall accuracy plus precision, recall, and F1 for both “Recommended” and “Not Recommended.” And of course, a confusion matrix heatmap to show where we nailed it (and where we can still improve).
 
 ## Built With
 
