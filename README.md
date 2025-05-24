@@ -48,7 +48,7 @@ Time to see how our model performs on brand-new reviews. We feed the tuned Rando
 This is the function I used to calculate the metrics.
 ```python
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-
+```
 # Get predictions on our test set
 y_pred = best_model.predict(X_test)
 
